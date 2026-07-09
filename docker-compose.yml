@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  mynginx_container:
+    image: nginx:stable
+    container_name: mynginx_container
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - myapp_container
+    networks:
+      - vzeta_net
+
+  myapp_container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: myapp_container
+    environment:
+      DB_HOST: db_container
+      DB_NAME: visitas_db
+      DB_USER: postgres
+      DB_PASSWORD: postgres_pass
+    depends_on:
+      - db_container
+    networks:
+      - vzeta_net
+
+  db_container:
+    image: postgres:15
+    container_name: db_container
+    environment:
+      POSTGRES_DB: visitas_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres_pass
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - vzeta_net
+
+networks:
+  vzeta_net:
+    driver: bridge
+
+volumes:
+  db_data:
