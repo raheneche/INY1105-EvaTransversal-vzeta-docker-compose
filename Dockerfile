@@ -1,5 +1,5 @@
 # Imagen propia de myapp_container (Flask)
-FROM python:3-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
