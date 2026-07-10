@@ -12,11 +12,8 @@ services:
       - myapp_container
     networks:
       - vzeta_net
-
   myapp_container:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: myapp:latest
     container_name: myapp_container
     environment:
       DB_HOST: db_container
@@ -27,7 +24,6 @@ services:
       - db_container
     networks:
       - vzeta_net
-
   db_container:
     image: postgres:15
     container_name: db_container
@@ -39,10 +35,8 @@ services:
       - db_data:/var/lib/postgresql/data
     networks:
       - vzeta_net
-
 networks:
   vzeta_net:
     driver: bridge
-
 volumes:
   db_data:
