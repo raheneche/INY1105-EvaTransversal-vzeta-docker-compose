@@ -168,7 +168,7 @@ docker network inspect iny1105-evatransversal-vzeta-docker-compose_vzeta_net
 ![Listado de redes Docker](evidencias/Imagen_7_-_Docker_Network.png)
 *Listado de redes Docker (`docker network ls`), donde se identifica la red creada automáticamente por Docker Compose: `iny1105-evatransversal-vzeta-docker-compose_vzeta_net`.*
 
-![Inspección de la red vzeta_net](evidencias/Imagen_7_1_-_Docker_Network.png)
+![Inspección de la red vzeta_net](evidencias/Imagen_7.1_-_Docker_Network.png)
 *Inspección detallada de la red `vzeta_net` (tipo bridge, subred `172.19.0.0/16`), mostrando los tres contenedores conectados: `mynginx_container`, `myapp_container` y `db_container`, cada uno con su IP interna asignada, lo que permite la comunicación entre servicios por nombre.*
 
 ### 4.8 Ciclo de vida de contenedores
@@ -191,7 +191,7 @@ docker rename mynginx_container_old mynginx_container
 Tras estas pruebas, el stack se dejó nuevamente operativo ejecutando
 `docker compose up -d`:
 
-![Stack restaurado tras el ciclo de vida](evidencias/ultima_evidencia_.png)
+![Stack restaurado tras el ciclo de vida](evidencias/ultima_evidencia.png)
 *Confirmación de que, tras las pruebas de `restart`, `stop` y `rename`, se ejecutó `docker compose up -d` y `docker compose ps`, dejando los tres contenedores (`db_container`, `myapp_container`, `mynginx_container`) nuevamente en estado "Up" para la revisión final.*
 
 ---
