@@ -1,8 +1,6 @@
 # VZeta — Despliegue de aplicación web contenerizada (Docker + Docker Compose)
 
-**Estudiante:** [COMPLETAR: TU NOMBRE COMPLETO]
 **Asignatura:** INY1105 — Infraestructura de Aplicaciones I
-**Evaluación:** Examen Transversal — Entrega de encargo
 
 ---
 
